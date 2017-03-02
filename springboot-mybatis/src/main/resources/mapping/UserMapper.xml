@@ -12,7 +12,9 @@
 	<update id="saveUser" parameterType="com.tingmou.ssm.model.User">
 		update user set
 		name=#{name},
-		note = #{note}
+		callId = #{callId},
+		description = #{description},
+		age = #{age}
 		Where id=#{id}
 	</update>
 
