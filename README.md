@@ -19,9 +19,9 @@ The maven central repository is slow, we can use the Aly yun mirror to speed up
 #### Layout
 refer: https://github.com/ultraq/thymeleaf-layout-dialect
 
-<html layout:decorate="~{layout.html}">
+ layout:decorate="~{layout.html}"
 
-<section layout:fragment="content">
+layout:fragment="content"
     
 ##MyBatis 
 
