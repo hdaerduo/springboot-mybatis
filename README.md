@@ -12,8 +12,13 @@ The maven central repository is slow, we can use the Aly yun mirror to speed up
 
 ## SpringMVC
 ### Controller
+#### RequestMapping
 1. 在controller里，如果要转到其他view：
     return "redirect:/users/";
+
+#### Validation
+
+#### Anthentication & Authorization
 
 ### View
 #### Layout
