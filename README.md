@@ -11,9 +11,17 @@ The maven central repository is slow, we can use the Aly yun mirror to speed up
 1. The import package could not find, but it's included in the Maven dependency already. The root cause is: The repository in the .m2 is damanged.
 
 ## SpringMVC
+### Controller
 1. 在controller里，如果要转到其他view：
     return "redirect:/users/";
-    
+
+### View
+#### Layout
+refer: https://github.com/ultraq/thymeleaf-layout-dialect
+
+<html layout:decorate="~{layout.html}">
+
+<section layout:fragment="content">
     
 ##MyBatis 
 
