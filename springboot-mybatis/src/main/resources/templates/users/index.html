@@ -9,16 +9,15 @@
 	href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap-theme.min.css"
 	rel="stylesheet" />
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script
+	src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <title>user test</title>
 </head>
 <body>
-<h1>List the users</h1>
+	<h1>List the users</h1>
+
 	<div class="panel panel-primary">
 		<div class="panel-heading"></div>
-	</div>
-	<div class="panel-body">
-		<span th:text="${singlePerson.name}"> </span>
 	</div>
 
 	<div th:if="${not #lists.isEmpty(people)}">
@@ -27,21 +26,22 @@
 	</div>
 	<div class="panel-body">
 		<ul class="list-group">
-			<li class="list-group-item" th:each="person:${people}"><span
+			<li class="list-group-item" th:each="person:${users}"><span
 				th:text="${person.name}"></span> <span th:text="${person.age}"></span>
 				<button class="btn" th:onclick="'getName(\''+${person.name}+'\');'"></button>
+				<a th:href="@{'user/'+${person.id}}" th:text="${person.name}"></a>
 			</li>
 		</ul>
 	</div>
 	<script th:inline="javascript">
-	//http://stackoverflow.com/questions/39632223/what-do-the-defaults-represent-in-this-amchart-property
-	// [[]] means get data from the dataProvider.
-	var single=[[${singlePerson}]]; 
-	console.log(single.name+"/"+single.age);
-	
-	function getName(name){
-		console.log(name);
-	}
+		//http://stackoverflow.com/questions/39632223/what-do-the-defaults-represent-in-this-amchart-property
+		// [[]] means get data from the dataProvider.
+		//var single=[[${singlePerson}]]; 
+		//console.log(single.name+"/"+single.age);
+
+		function getName(name) {
+			console.log(name);
+		}
 	</script>
 </body>
 </html>

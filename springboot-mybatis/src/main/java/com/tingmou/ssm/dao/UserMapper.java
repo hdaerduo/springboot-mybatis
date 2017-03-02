@@ -7,4 +7,7 @@ import com.tingmou.ssm.model.User;
 public interface UserMapper {
 
 	public List<User> getUsers();
+	public User getUser(int id);
+	public void saveUser(User user);
+	
 }

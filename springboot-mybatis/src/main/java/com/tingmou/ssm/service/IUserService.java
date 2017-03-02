@@ -7,4 +7,6 @@ import com.tingmou.ssm.model.User;
 public interface IUserService {
 
 	public List<User> getUsers();
+	public User getUser(int id);
+	public void saveUser(User user);
 }
