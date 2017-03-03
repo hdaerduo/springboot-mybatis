@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http:www.thymeleaf.org">
+<html xmlns:th="http:www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
 <head>
 <meta content="text/html" charset="UTF-8" />
 <link
@@ -14,37 +17,42 @@
 <title>user test</title>
 </head>
 <body>
-	<h1>Edit the users</h1>
-	<div class="panel panel-primary">
-		<div class="panel-heading"></div>
-	</div>
+	<div id="Content">
+		<section layout:fragment="content">
+			<h1>Edit the users</h1>
+			<div class="panel panel-primary">
+				<div class="panel-heading"></div>
+			</div>
 
-	<form th:method="post" th:action="saveUser" th:object="${user}">
-		<fieldset>
-			<legend>Edit User</legend>
-			<input type="text" hidden="true" id="id"
-					name="id" value="" th:value="*{id}" />
-			<p>
-				<label for="name">User Name:</label> <input type="text" id="name"
-					name="name" value="" th:value="*{name}" />
-			</p>
-			<p>
-				<label for="age">Age:</label> <input type="number" id="age"
-					name="age" value="" th:value="*{age}" />
-			</p>
-			<p>
-				<label for="description">Description:</label> <input type="text" id="description"
-					name="description" value="" th:value="*{description}" />
-			</p>
-			<p>
-				<label for="callId">Call Id:</label> <input type="number" id="callId"
-					name="callId" value="" th:value="*{callId}" />
-			</p>
-			<p>
-				<button type="submit">Save</button>
-			</p>
-		</fieldset>
-	</form>
+			<form th:method="post" th:action="saveUser" th:object="${user}">
+				<fieldset>
+					<legend>Edit User</legend>
+					<input type="text" hidden="true" id="id" name="id" value=""
+						th:value="*{id}" />
+					<p>
+						<label for="name">User Name:</label> <input type="text" id="name"
+							name="name" value="" th:value="*{name}" />
+					</p>
+					<p>
+						<label for="age">Age:</label> <input type="number" id="age"
+							name="age" value="" th:value="*{age}" />
+					</p>
+					<p>
+						<label for="description">Description:</label> <input type="text"
+							id="description" name="description" value=""
+							th:value="*{description}" />
+					</p>
+					<p>
+						<label for="callId">Call Id:</label> <input type="number"
+							id="callId" name="callId" value="" th:value="*{callId}" />
+					</p>
+					<p>
+						<button type="submit">Save</button>
+					</p>
+				</fieldset>
+			</form>
+		</section>
+	</div>
 	<script th:inline="javascript">
 	//http://stackoverflow.com/questions/39632223/what-do-the-defaults-represent-in-this-amchart-property
 	// [[]] means get data from the dataProvider.

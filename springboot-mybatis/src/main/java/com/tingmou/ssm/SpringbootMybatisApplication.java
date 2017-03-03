@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.thymeleaf.spring4.SpringTemplateEngine;
+
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 
 
 @EnableAutoConfiguration
@@ -46,6 +50,18 @@ public class SpringbootMybatisApplication {
     public PlatformTransactionManager transactionManager() {
         return new DataSourceTransactionManager(dataSource());
     }
+    
+
+//	/**
+//	 * @param templateEngine
+//	 */
+//	@Autowired
+//	protected void configureThymeleafSpringTemplateEngine(SpringTemplateEngine templateEngine) {
+//		//templateEngine.setEnableSpringELCompiler(true);
+//		templateEngine.addDialect(new LayoutDialect());
+////		templateEngine.addDialect(new SpringSecurityDialect());
+////		templateEngine.addDialect(new SpringStandardDialect());
+//	}
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootMybatisApplication.class, args);

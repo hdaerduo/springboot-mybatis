@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http:www.thymeleaf.org">
+<html xmlns:th="http:www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
 <head>
 <meta content="text/html" charset="UTF-8" />
 <link
@@ -14,24 +17,28 @@
 <title>user test</title>
 </head>
 <body>
-	<h1>List the users</h1>
+	<div id="Content">
+		<section layout:fragment="content">
+			<h1>List the users</h1>
 
-	<div class="panel panel-primary">
-		<div class="panel-heading"></div>
-	</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading"></div>
+			</div>
 
-	<div th:if="${not #lists.isEmpty(people)}">
-		<div class="panel panel-primary"></div>
-		<div class="panel-heading">列表</div>
-	</div>
-	<div class="panel-body">
-		<ul class="list-group">
-			<li class="list-group-item" th:each="person:${users}"><span
-				th:text="${person.name}"></span> <span th:text="${person.age}"></span>
-				<button class="btn" th:onclick="'getName(\''+${person.name}+'\');'"></button>
-				<a th:href="@{'user/'+${person.id}}" th:text="${person.name}"></a>
-			</li>
-		</ul>
+			<div th:if="${not #lists.isEmpty(people)}">
+				<div class="panel panel-primary"></div>
+				<div class="panel-heading">列表</div>
+			</div>
+			<div class="panel-body">
+				<ul class="list-group">
+					<li class="list-group-item" th:each="person:${users}"><span
+						th:text="${person.name}"></span> <span th:text="${person.age}"></span>
+						<button class="btn"
+							th:onclick="'getName(\''+${person.name}+'\');'"></button> <a
+						th:href="@{'user/'+${person.id}}" th:text="${person.name}"></a></li>
+				</ul>
+			</div>
+		</section>
 	</div>
 	<script th:inline="javascript">
 		//http://stackoverflow.com/questions/39632223/what-do-the-defaults-represent-in-this-amchart-property
