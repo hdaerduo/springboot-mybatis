@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.tingmou.ssm.model.User;
 import com.tingmou.ssm.service.IUserService;
 import com.tingmou.ssm.service.impl.UserService;
+import com.tingmou.ssm.ui.UserForm;
 
 @Controller
 @RequestMapping("/users")
@@ -35,20 +36,42 @@ public class UserController {
 		return "users/index";
 	}
 
-	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-	public String user(@PathVariable("id") Integer id, Model model) {
+	@RequestMapping(value = "/user/{id}")
+	public String editUser(@PathVariable("id") Integer id, Model model) {
 
 		User user = userService.getUser(id);
-		model.addAttribute("user", user);
-
-		return "users/user";
-	}
-	
-	@RequestMapping(value = "/user/saveUser", method=RequestMethod.POST)
-	public String saveUser(@ModelAttribute User user) {		
-		assert(user.getId()!=0);
+		UserForm userForm = new UserForm(user);
 		
-		userService.saveUser(user);
+		model.addAttribute("user", userForm);
+
+		return "users/editUser";
+	}
+
+	@RequestMapping(value = "/user/saveUser", method=RequestMethod.POST)
+	public String saveUser(@ModelAttribute UserForm userForm) {		
+		assert(userForm.getId()!=0);
+		
+		userService.saveUser(userForm.toUser());
+
+		return "redirect:/users/";
+	}
+
+	@RequestMapping(value = "/user/createUser",params = "form")
+	public String createUserForm(){
+		
+		return "users/createUser";
+	}
+
+	@RequestMapping(value = "/user/createUser",method=RequestMethod.POST)
+	public String createUser(){
+		//Need to add the create function here.
+
+		return "redirect:/users/";
+	}	
+	
+
+	@RequestMapping(value = "/user/{id}", params="remove")
+	public String removeUser(@PathVariable("id") Integer id) {
 
 		return "redirect:/users/";
 	}
