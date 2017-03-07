@@ -42,4 +42,10 @@ public class UserService implements IUserService {
 		userMapper.createUser(user);		
 	}
 
+	@Override
+	public void removeUser(int id) {
+		userMapper.removeUser(id);
+		
+	}
+
 }

@@ -11,23 +11,30 @@
 		<section layout:fragment="content">
 			<h1>List the users</h1>
 
-			<div class="panel panel-primary">
-				<div class="panel-heading"></div>
-			</div>
 			<a th:href="@{/users/createUser(form)}">Create user</a>
-			<div th:if="${not #lists.isEmpty(people)}">
-				<div class="panel panel-primary"></div>
-				<div class="panel-heading">列表</div>
-			</div>
-			<div class="panel-body">
-				<ul class="list-group">
-					<li class="list-group-item" th:each="person:${users}"><span
-						th:text="${person.name}"></span> <span th:text="${person.age}"></span>
-						<button class="btn"
-							th:onclick="'getName(\''+${person.name}+'\');'"></button> <a
-						th:href="@{'user/'+${person.id}}" th:text="${person.name}"></a></li>
-				</ul>
-			</div>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Call ID</th>
+						<th>Description</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="person:${users}">
+						<td th:text="${person.name}"></td>
+						<td th:text="${person.age}"></td>
+						<td th:text="${person.callId}"></td>
+						<td th:text="${person.description}"></td>
+						<td>
+							<a th:href="@{'user/'+${person.id}}">Edit</a> 
+							<a th:href="@{'user/'+${person.id}(remove)}">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</section>
 	</div>
 	<script th:inline="javascript">

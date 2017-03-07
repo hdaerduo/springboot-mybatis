@@ -22,5 +22,8 @@
 	(name,callId,description,age) 
 	values (#{name},#{callId},#{description},#{age})
 	</insert>
+	<delete id="removeUser">
+	delete from user where id=#{id}
+	</delete>
 
 </mapper>
