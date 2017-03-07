@@ -17,5 +17,10 @@
 		age = #{age}
 		Where id=#{id}
 	</update>
+	<insert id="createUser" parameterType="com.tingmou.ssm.model.User">
+	insert into user 
+	(name,callId,description,age) 
+	values (#{name},#{callId},#{description},#{age})
+	</insert>
 
 </mapper>

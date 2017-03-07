@@ -37,4 +37,9 @@ public class UserService implements IUserService {
 		userMapper.saveUser(user);		
 	}
 
+	@Override
+	public void createUser(User user) {
+		userMapper.createUser(user);		
+	}
+
 }

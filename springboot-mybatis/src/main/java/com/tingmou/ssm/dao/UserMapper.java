@@ -9,5 +9,6 @@ public interface UserMapper {
 	public List<User> getUsers();
 	public User getUser(int id);
 	public void saveUser(User user);
+	public void createUser(User user);
 	
 }

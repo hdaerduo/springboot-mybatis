@@ -56,15 +56,17 @@ public class UserController {
 		return "redirect:/users/";
 	}
 
-	@RequestMapping(value = "/user/createUser",params = "form")
+	@RequestMapping(value = "/createUser",params = "form")
 	public String createUserForm(){
 		
 		return "users/createUser";
 	}
 
-	@RequestMapping(value = "/user/createUser",method=RequestMethod.POST)
-	public String createUser(){
+	@RequestMapping(value = "/createUser",method=RequestMethod.POST)
+	public String createUser(@ModelAttribute UserForm userForm){
 		//Need to add the create function here.
+		User user= userForm.toUser();
+		userService.createUser(user);
 
 		return "redirect:/users/";
 	}	

@@ -14,7 +14,7 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading"></div>
 			</div>
-
+			<a th:href="@{/users/createUser(form)}">Create user</a>
 			<div th:if="${not #lists.isEmpty(people)}">
 				<div class="panel panel-primary"></div>
 				<div class="panel-heading">列表</div>
