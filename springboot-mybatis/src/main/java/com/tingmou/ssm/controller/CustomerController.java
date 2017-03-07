@@ -14,67 +14,67 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.tingmou.ssm.model.User;
-import com.tingmou.ssm.service.IUserService;
-import com.tingmou.ssm.service.impl.UserService;
-import com.tingmou.ssm.ui.UserForm;
+import com.tingmou.ssm.model.Customer;
+import com.tingmou.ssm.service.ICustomerService;
+import com.tingmou.ssm.service.impl.CustomerService;
+import com.tingmou.ssm.ui.CustomerForm;
 
 @Controller
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/customers")
+public class CustomerController {
 
 	@Autowired
-	private IUserService userService;
+	private ICustomerService customerService;
 
 	@RequestMapping("/")
 	public String index(Model model) {
 
-		List<User> users = userService.getUsers();
+		List<Customer> users = customerService.getCustomers();
 
 		model.addAttribute("users", users);
 
-		return "users/index";
+		return "customers/index";
 	}
 
 	@RequestMapping(value = "/user/{id}")
 	public String editUser(@PathVariable("id") Integer id, Model model) {
 
-		User user = userService.getUser(id);
-		UserForm userForm = new UserForm(user);
+		Customer user = customerService.getCustomer(id);
+		CustomerForm userForm = new CustomerForm(user);
 		
 		model.addAttribute("user", userForm);
 
-		return "users/editUser";
+		return "customers/editUser";
 	}
 
 	@RequestMapping(value = "/user/saveUser", method=RequestMethod.POST)
-	public String saveUser(@ModelAttribute UserForm userForm) {		
+	public String saveUser(@ModelAttribute CustomerForm userForm) {		
 		assert(userForm.getId()!=0);
 		
-		userService.saveUser(userForm.toUser());
+		customerService.saveCustomer(userForm.toUser());
 
-		return "redirect:/users/";
+		return "redirect:/customers/";
 	}
 
 	@RequestMapping(value = "/createUser",params = "form")
 	public String createUserForm(){
 		
-		return "users/createUser";
+		return "customers/createUser";
 	}
 
 	@RequestMapping(value = "/createUser",method=RequestMethod.POST)
-	public String createUser(@ModelAttribute UserForm userForm){
+	public String createUser(@ModelAttribute CustomerForm userForm){
 		//Need to add the create function here.
-		User user= userForm.toUser();
-		userService.createUser(user);
+		Customer user= userForm.toUser();
+		customerService.createCustomer(user);
 
-		return "redirect:/users/";
+		return "redirect:/customers/";
 	}	
 	
 
 	@RequestMapping(value = "/user/{id}", params="remove")
 	public String removeUser(@PathVariable("id") Integer id) {
-		userService.removeUser(id);
-		return "redirect:/users/";
+		customerService.removeCustomer(id);
+		return "redirect:/customers/";
 	}
 }

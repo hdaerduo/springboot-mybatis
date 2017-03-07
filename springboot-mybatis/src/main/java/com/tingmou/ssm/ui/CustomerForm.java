@@ -7,9 +7,9 @@ import javax.validation.constraints.Size;
 
 import org.springframework.beans.BeanUtils;
 
-import com.tingmou.ssm.model.User;
+import com.tingmou.ssm.model.Customer;
 
-public class UserForm implements Serializable {
+public class CustomerForm implements Serializable {
 	private int id;
 	
 	@NotNull
@@ -19,11 +19,11 @@ public class UserForm implements Serializable {
 	private String description;
 	private int callId;
 	
-	public UserForm(){
+	public CustomerForm(){
 		
 	}
 	
-	public UserForm(User user){
+	public CustomerForm(Customer user){
 		BeanUtils.copyProperties(user,this);
 	}
 	
@@ -65,9 +65,9 @@ public class UserForm implements Serializable {
 		this.callId=callId;
 	}
 	
-	public User toUser(){
+	public Customer toUser(){
 
-		User user = new User();
+		Customer user = new Customer();
 		BeanUtils.copyProperties(this, user);
 		return user;
 	}
