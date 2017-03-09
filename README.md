@@ -1,3 +1,4 @@
+
 # springboot-mybatis
 
 refer: http://blog.csdn.net/gebitan505/article/details/44455235/
@@ -66,3 +67,8 @@ http://www.codesec.net/view/173285.html
 mvn pakcage
 
 java -jar ssm-0.0.1-SNAPSHOT.jar
+
+SSH Secure File Transfer Client传送文件
+http://jingyan.baidu.com/article/19192ad815fd0ee53e570719.html
+
+
