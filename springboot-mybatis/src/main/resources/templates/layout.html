@@ -29,7 +29,21 @@
 			</div>
 		</div>
 
-
+ <div id="Menu">
+        <div id="MenuContent">
+            <img align="middle" th:src="@{/images/separator.gif}" />
+            <a th:href="@{/login}" sec:authorize="!isAuthenticated()">
+                Sign In
+            </a>
+            <a th:href="@{/logout}" sec:authorize="${isAuthenticated()}">
+                Sign Out
+            </a>
+            <img align="middle" th:src="@{/images/separator.gif}"  sec:authorize="${isAuthenticated()}"/>
+            <label  th:if="${true}" sec:authorize="${isAuthenticated()}" th:text="${session.SPRING_SECURITY_CONTEXT.authentication.principal.username}">
+                My Account
+            </label>       
+        </div>
+    </div>
 
 	</div>
 

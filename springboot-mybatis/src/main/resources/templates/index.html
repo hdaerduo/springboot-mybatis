@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http:www.thymeleaf.org">
+<html xmlns:th="http:www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
 <head>
-<meta content="text/html" charset="UTF-8" />
-<link
-	th:href="@{http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css}"
-	rel="stylesheet" />
-<link
-	href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap-theme.min.css"
-	rel="stylesheet" />
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script
-	src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<title>tingmou's test</title>
+<title>Index Page</title>
 </head>
 <body>
-<h1>tttt</h1>
-	<a th:href="@{/customers/}"
-		th:text="Customers"></a>
+	<div id="Content">
+		<section layout:fragment="content">
+			<h1 sec:authorize="hasRole('ROLE_ADMIN')">admin view only</h1>
+			<h1 sec:authorize="hasRole('ROLE_USER')">user view only</h1>
+			
+			<a th:href="@{/customers/}" th:text="Customers"></a>
+		</section>
+	</div>
 </body>
 </html>
