@@ -1,4 +1,3 @@
-
 # springboot-mybatis
 
 refer: http://blog.csdn.net/gebitan505/article/details/44455235/
@@ -8,7 +7,7 @@ refer: http://blog.csdn.net/gebitan505/article/details/44455235/
 ###Maven
 The maven central repository is slow, we can use the Aly yun mirror to speed up
 
-##Tips:
+n##Tips:
 1. The import package could not find, but it's included in the Maven dependency already. The root cause is: The repository in the .m2 is damanged.
 
 ## SpringMVC
@@ -18,7 +17,7 @@ The maven central repository is slow, we can use the Aly yun mirror to speed up
     return "redirect:/users/";
 
 #### Validation
-
+I
 #### Anthentication & Authorization
 
 ### View
@@ -71,4 +70,5 @@ java -jar ssm-0.0.1-SNAPSHOT.jar
 SSH Secure File Transfer Client传送文件
 http://jingyan.baidu.com/article/19192ad815fd0ee53e570719.html
 
-
+Insall jdk: 
+sudo yum -y install java-1.8.0-openjdk*
