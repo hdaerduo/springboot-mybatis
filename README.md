@@ -60,3 +60,9 @@ http://jingyan.baidu.com/article/ae97a646b70aabbbfd461d3e.html
 客户端管理工具
 http://www.codesec.net/view/173285.html
 
+
+## Deployment
+
+mvn pakcage
+
+java -jar ssm-0.0.1-SNAPSHOT.jar
