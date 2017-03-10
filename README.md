@@ -9,7 +9,6 @@ The maven central repository is slow, we can use the Aly yun mirror to speed up
 
 n##Tips:
 1. The import package could not find, but it's included in the Maven dependency already. The root cause is: The repository in the .m2 is damanged.
-
 ## SpringMVC
 ### Controller
 #### RequestMapping
@@ -20,8 +19,7 @@ n##Tips:
 I
 #### Anthentication & Authorization
 
-### View
-#### Layout
+### View#### Layout
 refer: https://github.com/ultraq/thymeleaf-layout-dialect
 
  layout:decorate="~{layout.html}"
@@ -65,10 +63,29 @@ http://www.codesec.net/view/173285.html
 
 mvn pakcage
 
-java -jar ssm-0.0.1-SNAPSHOT.jar
+set the firewall:
+
+sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
+
+sudo systemctl disable firewalld
+
+sudo systemctl stop firewalld
+
+sudo systemctl start firewalld
+
+sudo systemctl eanble firewalld
+
 
 SSH Secure File Transfer Client传送文件
 http://jingyan.baidu.com/article/19192ad815fd0ee53e570719.html
 
+upload to /var/apps
+
+
 Insall jdk: 
 sudo yum -y install java-1.8.0-openjdk*
+
+java -jar ssm-0.0.1-SNAPSHOT.jar
+
+verify the web service is working:
+curl 127.0.0.1:8080
