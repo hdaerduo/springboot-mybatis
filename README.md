@@ -20,7 +20,8 @@ The maven central repository is slow, we can use the Aly yun mirror to speed up
 
 #### Anthentication & Authorization
 
-### View#### Layout
+### View
+#### Layout
 refer: https://github.com/ultraq/thymeleaf-layout-dialect
 
  layout:decorate="~{layout.html}"
