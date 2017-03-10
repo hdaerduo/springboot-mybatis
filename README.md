@@ -15,6 +15,7 @@ n##Tips:
 1. 在controller里，如果要转到其他view：
     return "redirect:/users/";
 
+
 #### Validation
 I
 #### Anthentication & Authorization
@@ -60,10 +61,10 @@ http://www.codesec.net/view/173285.html
 
 
 ## Deployment
-
+#### create package by Maven
 mvn pakcage
 
-set the firewall:
+#### set the firewall:
 
 sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
 
@@ -76,16 +77,21 @@ sudo systemctl start firewalld
 sudo systemctl eanble firewalld
 
 
+#### upload file
 SSH Secure File Transfer Client传送文件
 http://jingyan.baidu.com/article/19192ad815fd0ee53e570719.html
 
 upload to /var/apps
 
 
-Insall jdk: 
+#### Insall jdk: 
 sudo yum -y install java-1.8.0-openjdk*
 
+#### run
 java -jar ssm-0.0.1-SNAPSHOT.jar
 
-verify the web service is working:
+#### verify the web service is working:
 curl 127.0.0.1:8080
+
+#### verify the ip/port is open
+telnet 192.168.56.5 8080
