@@ -7,7 +7,7 @@ refer: http://blog.csdn.net/gebitan505/article/details/44455235/
 ###Maven
 The maven central repository is slow, we can use the Aly yun mirror to speed up
 
-n##Tips:
+###Tips:
 1. The import package could not find, but it's included in the Maven dependency already. The root cause is: The repository in the .m2 is damanged.
 ## SpringMVC
 ### Controller
@@ -17,7 +17,7 @@ n##Tips:
 
 
 #### Validation
-I
+
 #### Anthentication & Authorization
 
 ### View#### Layout
@@ -26,7 +26,8 @@ refer: https://github.com/ultraq/thymeleaf-layout-dialect
  layout:decorate="~{layout.html}"
 
 layout:fragment="content"
-    
+
+
 ##MyBatis 
 
 ##CentOS setup:
@@ -95,3 +96,7 @@ curl 127.0.0.1:8080
 
 #### verify the ip/port is open
 telnet 192.168.56.5 8080
+
+#### 坑人哪
+Microsoft Edge can't see or open VirtualBox-hosted local web sites
+http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx
