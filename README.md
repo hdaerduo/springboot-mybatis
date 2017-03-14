@@ -73,6 +73,8 @@ sudo docker run --restart=always -d -p 6379:6379 redis
 
 client:https://github.com/caoxinyu/RedisClient/tree/windows/release
 
+Redis keep the sessions:
+http://blog.csdn.net/xiaoyu411502/article/details/48603597
 
 ## Deployment
 #### create package by Maven
