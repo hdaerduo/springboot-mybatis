@@ -103,6 +103,21 @@ curl 127.0.0.1:8080
 #### verify the ip/port is open
 telnet 192.168.56.5 8080
 
+### Nginx
+install: 
+http://www.linuxidc.com/Linux/2016-09/134907.htm
+
+setup: vi nginx.conf
+    
+    upstream site{
+         ip_hash;
+         server 192.168.56.5:8080;
+         server 192.168.56.6:8080
+         }
+         
+   proxy_pass http://site
+
+
 #### 坑人哪
 Microsoft Edge can't see or open VirtualBox-hosted local web sites
 http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx
