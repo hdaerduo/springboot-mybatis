@@ -23,7 +23,7 @@ The maven central repository is slow, we can use the Aly yun mirror to speed up
 
 ### View
 #### Layout
-refer: https://github.com/ultraq/thymeleaf-layout-dialect
+ refer: https://github.com/ultraq/thymeleaf-layout-dialect
 
  layout:decorate="~{layout.html}"
 
@@ -46,7 +46,7 @@ https://cr.console.aliyun.com/?spm=5176.100239.blogcont29941.13.gDdHkf#/accelera
 
 *启动Mysql docker
 
-sudo docker run --name test-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=test123456 -d mysql
+sudo docker run --restart=always --name test-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=test123456 -d mysql
 
 之后：
 sudo docker start test-mysql
