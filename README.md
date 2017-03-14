@@ -10,6 +10,7 @@ The maven central repository is slow, we can use the Aly yun mirror to speed up
 ###Tips:
 
 1. The import package could not find, but it's included in the Maven dependency already. The root cause is: The repository in the .m2 is damanged.
+
 ## SpringMVC
 ### Controller
 #### RequestMapping
@@ -66,6 +67,12 @@ try to use the docker to deploy the master-slave. Not succeed, even follow the i
 http://blog.csdn.net/sunlihuo/article/details/54018843
 
 http://blog.csdn.net/qq362228416/article/details/48569293
+
+## redis
+sudo docker run --restart=always -d -p 6379:6379 redis
+
+client:https://github.com/caoxinyu/RedisClient/tree/windows/release
+
 
 ## Deployment
 #### create package by Maven
